@@ -2,9 +2,14 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import "chartjs-plugin-dragdata";
 
-class DraggableGraph extends React.Component {
-  state = {
-    dataSet: [[65, 59, 80, 81, 56, 55, 40], [35, 39, 50, 91, 46, 85, 10]],
+const DraggableGraph = props => {
+  console.log("PROPS:", props.data);
+  const state = {
+    dataSet: [
+      [65, 59, 80, 81, 56, 55, 40],
+      [35, 39, 50, 91, 46, 85, 10],
+      props.data
+    ],
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     options: {
       tooltips: { enabled: true },
@@ -58,52 +63,60 @@ class DraggableGraph extends React.Component {
       },
       onDragEnd: function(e, datasetIndex, index, value) {
         console.log("End:", datasetIndex, index, value, this.state);
-        const set = this.state.dataSet;
-        set[datasetIndex][index] += 5;
-        this.setState({
-          dataSet: set
-        });
+        // const set = this.state.dataSet;
+        // set[datasetIndex][index] += 5;
+        // setState({
+        //   dataSet: set
+        // });
       }.bind(this)
     }
   };
 
-  render() {
-    console.log("RENDER");
-    const data = {
-      labels: this.state.labels,
-      datasets: [
-        {
-          label: "My First dataset",
-          data: this.state.dataSet[0],
-          borderColor: "9B9B9B",
-          borderWidth: 1,
-          pointRadius: 10,
-          pointHoverRadius: 10,
-          pointBackgroundColor: "#609ACF",
-          pointBorderWidth: 0,
-          spanGaps: false,
-          dragData: false
-        },
-        {
-          label: "Predict",
-          data: this.state.dataSet[1],
-          borderColor: "9B9B9B",
-          borderWidth: 1,
-          pointRadius: 10,
-          pointHoverRadius: 10,
-          pointBackgroundColor: "#302BE0",
-          pointBorderWidth: 0,
-          spanGaps: false
-        }
-      ]
-    };
-
-    return (
-      <div>
-        <Line data={data} options={this.state.options} />
-      </div>
-    );
-  }
-}
+  console.log("RENDER");
+  const data = {
+    labels: state.labels,
+    datasets: [
+      {
+        label: "My First dataset",
+        data: state.dataSet[0],
+        borderColor: "9B9B9B",
+        borderWidth: 1,
+        pointRadius: 10,
+        pointHoverRadius: 10,
+        pointBackgroundColor: "#609ACF",
+        pointBorderWidth: 0,
+        spanGaps: false,
+        dragData: false
+      },
+      {
+        label: "Predict",
+        data: state.dataSet[1],
+        borderColor: "9B9B9B",
+        borderWidth: 1,
+        pointRadius: 10,
+        pointHoverRadius: 10,
+        pointBackgroundColor: "#302BE0",
+        pointBorderWidth: 0,
+        spanGaps: false
+      },
+      {
+        label: "Crazy",
+        data: state.dataSet[2],
+        borderColor: "9B9B9B",
+        borderWidth: 1,
+        pointRadius: 10,
+        pointHoverRadius: 10,
+        pointBackgroundColor: "#302BE0",
+        pointBorderWidth: 0,
+        spanGaps: false
+      }
+    ]
+  };
+  return (
+    <div>
+      <Line data={data} options={state.options} />
+    </div>
+  );
+};
 
 export default DraggableGraph;

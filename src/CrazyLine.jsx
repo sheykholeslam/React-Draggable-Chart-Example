@@ -2,6 +2,7 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import color from "rcolor";
 import createReactClass from "create-react-class";
+import DraggableGraph from "./DraggableData";
 
 const initialState = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -19,7 +20,7 @@ const initialState = {
 };
 
 class Graph extends React.Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.setState(initialState);
   }
   componentDidMount() {
@@ -52,7 +53,12 @@ class Graph extends React.Component {
     }, 5000);
   }
   render() {
-    return <Bar data={this.state} />;
+    return (
+      <div>
+        <Bar data={this.state} />;
+        <DraggableGraph data={this.state.datasets[0].data} />
+      </div>
+    );
   }
 }
 
