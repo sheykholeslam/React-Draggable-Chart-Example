@@ -6,7 +6,7 @@ export default () => {
   return (
     <div className="App">
       <h1>My Draggable Chartjs Demo</h1>
-      <h2>By: Mohammad </h2>
+      <h2>By: Mohammad</h2>
       <DraggableGraph />
     </div>
   );
