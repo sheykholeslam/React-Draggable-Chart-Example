@@ -72,7 +72,8 @@ class DraggableGraph extends React.Component {
           pointHoverRadius: 10,
           pointBackgroundColor: "#609ACF",
           pointBorderWidth: 0,
-          spanGaps: false
+          spanGaps: false,
+          dragData: false
         },
         {
           label: "Predict",
@@ -83,8 +84,7 @@ class DraggableGraph extends React.Component {
           pointHoverRadius: 10,
           pointBackgroundColor: "#302BE0",
           pointBorderWidth: 0,
-          spanGaps: false,
-          dragData: false
+          spanGaps: false
         }
       ]
     };
