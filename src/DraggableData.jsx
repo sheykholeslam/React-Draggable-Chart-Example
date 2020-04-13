@@ -102,7 +102,7 @@ const DraggableGraph = props => {
         spanGaps: false
       },
       {
-        label: "Crazy",
+        label: "Live",
         data: state.dataSet[2],
         borderColor: "9B9B9B",
         borderWidth: 1,

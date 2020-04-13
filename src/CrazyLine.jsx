@@ -50,12 +50,12 @@ class Graph extends React.Component {
       };
 
       _this.setState(newState);
-    }, 5000);
+    }, 3000);
   }
   render() {
     return (
       <div>
-        <Bar data={this.state} />;
+        {/* <Bar data={this.state} />; */}
         <DraggableGraph data={this.state.datasets[0].data} />
       </div>
     );
@@ -68,7 +68,7 @@ export default createReactClass({
   render() {
     return (
       <div>
-        <h2>You can even make crazy graphs like this!</h2>
+        <h2>You can even make live graphs like this!</h2>
         <Graph />
       </div>
     );
