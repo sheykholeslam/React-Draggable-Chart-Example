@@ -79,11 +79,12 @@ const DraggableGraph = props => {
       {
         label: "My First dataset",
         data: state.dataSet[0],
+        lineTension: 0.4,
         borderColor: "9B9B9B",
         borderWidth: 1,
         pointRadius: 10,
         pointHoverRadius: 10,
-        pointBackgroundColor: "#609ACF",
+        pointBackgroundColor: "red",
         pointBorderWidth: 0,
         spanGaps: false,
         dragData: false
@@ -91,11 +92,12 @@ const DraggableGraph = props => {
       {
         label: "Predict",
         data: state.dataSet[1],
+        lineTension: 0,
         borderColor: "9B9B9B",
         borderWidth: 1,
         pointRadius: 10,
         pointHoverRadius: 10,
-        pointBackgroundColor: "#302BE0",
+        pointBackgroundColor: "cyan",
         pointBorderWidth: 0,
         spanGaps: false
       },
@@ -106,7 +108,7 @@ const DraggableGraph = props => {
         borderWidth: 1,
         pointRadius: 10,
         pointHoverRadius: 10,
-        pointBackgroundColor: "#302BE0",
+        pointBackgroundColor: "green",
         pointBorderWidth: 0,
         spanGaps: false
       }
